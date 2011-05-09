@@ -19,10 +19,10 @@ What can it do?
 ---------------
 Currently just two, albeit important, things. Squidegory uses your
 access log from Squid and, with Shallalist, is able to parse and
-meaningfully categorize the data. So for instance, you can get a list of
-requests by category, ordered by popularity. Squidegory is also able to
-give you a converse of this and list all requested sites that are of yet
-"unknown."
+meaningfully categorize the data. So for instance, you can get a list
+of requests by category, ordered by popularity. Squidegory is also able
+to give you the converse of this and list all requested sites that are
+as of yet "unknown."
 
 There is no real user interface as of yet, but I'd like to start work on
 a web interface implemented using CherryPy or Twisted soon.
