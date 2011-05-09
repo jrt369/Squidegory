@@ -1,0 +1,28 @@
+Squidegory - Make sense of your Squid access logs with a little help
+from Python and Shallalist
+
+What is in a name?
+------------------
+Yeah, I don't like the name Squidegory; but my first choice, Squirm,
+was already taken. Feel free to send suggestions my way.
+
+What is it exactly?
+-------------------
+Basically, If you do any kind of content filtering, or perhaps simply
+want to get an understanding of http usage, there is little available
+in the way of open source tools. If you have a decent budget there are
+plenty of proprietary resources out there, but sans funds you are out
+of luck. I am attempting to bridge that gap using Squid and the popular
+SquidGuard blacklist, Shallalist.
+
+What can it do?
+---------------
+Currently just two, albeit important, things. Squidegory uses your
+access log from Squid and, with Shallalist, is able to parse and
+meaningfully categorize the data. So for instance, you can get a list of
+requests by category, ordered by popularity. Squidegory is also able to
+give you a converse of this and list all requested sites that are of yet
+"unknown."
+
+There is no real user interface as of yet, but I'd like to start work on
+a web interface implemented using CherryPy or Twisted soon.
