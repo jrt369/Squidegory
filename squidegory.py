@@ -11,6 +11,7 @@ class Squidegory:
     def reload(self):
         self.categories = self.get_categories()
         self.request_list = self.get_request_list()
+        self.unknown_counter = self.get_unknown_counter()
 
     def get_category_counter(self, category):
         request_counter = Counter(self.request_list)
@@ -27,6 +28,10 @@ class Squidegory:
         return request_counter
 
     def get_unknown_counter(self):
+        self.update_unknown_counter()
+        return self.unknown_counter
+
+    def update_unknown_counter(self):
         request_counter = Counter(self.request_list)
         for key, value in self.categories:
             test_counter = Counter(open(value, 'r').readlines())
@@ -39,7 +44,7 @@ class Squidegory:
                     if test_counter.has_key(domain_construction + '\n'):
                         del request_counter[domain]
                         break
-        return request_counter
+        self.unknown_counter = request_counter
 
     def get_categories(self):
         config = SafeConfigParser()

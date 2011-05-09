@@ -6,23 +6,19 @@ import tornado.ioloop
 import tornado.web
 
 class Root(tornado.web.RequestHandler):
-    report = Squidegory()
 
     def get(self):
-        self.write("total relevant requests: %s<br><br>" %(len(self.report.request_list)))
-        # This is irredeemably long for http -- should pre-generate with ioloop.PeriodicCallback
-        unknown_counter = self.report.get_unknown_counter()
-        for domain in unknown_counter.most_common():
+        self.write("total relevant requests: %s<br><br>" %(len(report.request_list)))
+
+        for domain in report.unknown_counter.most_common():
             self.write(' '.join([domain[0], str(domain[1]), "<br>"]))
-        self.write("<br>total unique/unknown domains: %s\n\n" %len(unknown_counter))
+        self.write("<br>total unique/unknown domains: %s\n\n" %len(report.unknown_counter))
 
 
-application = tornado.web.Application([
-    (r"/", Root),
-])
-
-
-
+report = Squidegory()
+update = tornado.ioloop.PeriodicCallback(report.update_unknown_counter, 60000)
+update.start()
+application = tornado.web.Application([(r"/", Root),])
 
 if __name__ == "__main__":
 
