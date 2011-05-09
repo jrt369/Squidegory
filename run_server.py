@@ -16,6 +16,8 @@ class Root(tornado.web.RequestHandler):
 
 
 report = Squidegory()
+
+# This blocks and required me to make some changes I'm not happy with ...
 update = tornado.ioloop.PeriodicCallback(report.update_unknown_counter, 60000)
 update.start()
 application = tornado.web.Application([(r"/", Root),])

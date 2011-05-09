@@ -11,7 +11,7 @@ class Squidegory:
     def reload(self):
         self.categories = self.get_categories()
         self.request_list = self.get_request_list()
-        self.unknown_counter = self.get_unknown_counter()
+        self.update_unknown_counter()
 
     def get_category_counter(self, category):
         request_counter = Counter(self.request_list)
