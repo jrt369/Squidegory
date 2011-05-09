@@ -41,7 +41,7 @@ def get_categories():
 def get_request_list():
     new_request_list = []
     domain_regex = re.compile('^.*http://(.*?)/')
-    for line in open('/Users/james/access.log', 'r'):
+    for line in open('/tmp/access.log', 'r'):
         domain_match = domain_regex.match(line)
         try:
             if len(domain_match.group(1).split('.')) > 1:
