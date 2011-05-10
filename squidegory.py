@@ -15,10 +15,10 @@ class PrettyPrinter:
     def category_detail(self, counter):
         pass
 
-    def category_overview(self, counter):
+    def unknown_detail(self, counter):
         pass
-
-    def unknown_overview(self, counter):
+    
+    def category_overview(self, counter):
         pass
 
     def ip_overview(self, counter):
