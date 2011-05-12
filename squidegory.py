@@ -3,6 +3,7 @@ from ConfigParser import SafeConfigParser
 import re
 
 class PrettyPrinter:
+    '''Should probably use a templating mechanism'''
     def __init__(self):
         pass
 
